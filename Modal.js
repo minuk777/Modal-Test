@@ -21,7 +21,6 @@ class Modal extends React.Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log("next");
 		this.setState({
 			modalOpen : nextProps.modalOn
 		});
