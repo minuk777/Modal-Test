@@ -3,7 +3,11 @@ import React from "react"
 class Modal extends React.Component {
 
 	static defaultProps = {
-		modalOn:false
+		modalOn : false
+	}
+
+	static propTypes = {
+		modalOn : React.PropTypes.bool.isRequired
 	}
 
 	render() {
