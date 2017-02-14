@@ -43,13 +43,14 @@ class Modal extends React.Component {
 			btn : {
 				common : {
 					position : "fixed",
-					borderRadius : 5,
+					borderRadius : 3,
 					border : "1px solid #08c",
-					fontSize : 20,
+					fontSize : 16,
 					color : "#08c",
 					textAlign : "right",
 					top : 10,
-					right : 10
+					right : 10,
+					padding : 3
 				}
 			}
 		};
