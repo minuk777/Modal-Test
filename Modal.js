@@ -2,6 +2,10 @@ import React from "react"
 
 class Modal extends React.Component {
 
+	static defaultProps = {
+		modalOn:false
+	}
+
 	render() {
 		
 		return(
