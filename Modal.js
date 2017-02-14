@@ -3,18 +3,20 @@ import React from "react"
 class Modal extends React.Component {
 
 	static defaultProps = {
-		modalOn : false
+		modalOn : false,
+		bgColor : '#FAFAFA'
 	}
 
 	static propTypes = {
-		modalOn : React.PropTypes.bool.isRequired
+		modalOn : React.PropTypes.bool.isRequired,
+		bgColor : React.PropTypes.string
 	}
 	
 	constructor(props) {
 		super(props);
 		this.state = {
 			modalOpen : this.props.modalOn,
-			theme : 'white'
+			bgColor : this.props.bgColor
 		};
 	}
 
@@ -42,8 +44,8 @@ class Modal extends React.Component {
 					left : 0,
 					padding : 10
 				},
-				white : {
-					backgroundColor : "#FAFAFA"
+				custom : {
+					backgroundColor : this.state.bgColor
 				}
 			},
 			btn : {
@@ -64,7 +66,7 @@ class Modal extends React.Component {
 		return(
 			<div>
 				{this.state.modalOpen &&
-				<div style={{...styles.wrap.common, ...styles.wrap.white}}>
+				<div style={{...styles.wrap.common, ...styles.wrap.custom}}>
 					<div style={styles.btn.common} onClick={()=>{this.closeHandle()}} >Close</div>
 					<div>{this.props.children}</div>
 				</div>}
