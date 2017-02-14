@@ -10,10 +10,58 @@ class Modal extends React.Component {
 		modalOn : React.PropTypes.bool.isRequired
 	}
 	
+	constructor(props) {
+		super(props);
+		this.state = {
+			modalOpen : this.props.modalOn,
+			theme : 'white'
+		};
+	}
+
+	componentWillReceiveProps(nextProps) {
+		this.setState({
+			modalOpen : nextProps.modalOn
+		});
+	}
+
 	render() {
 		
+		let styles = {
+			wrap : {
+				common : {
+					position : "fixed",
+					width : "100%",
+					height : "100%",
+					top : 0,
+					left : 0,
+					padding : 10
+				},
+				white : {
+					backgroundColor : "#FAFAFA"
+				}
+			},
+			btn : {
+				common : {
+					position : "fixed",
+					borderRadius : 5,
+					border : "1px solid #08c",
+					fontSize : 20,
+					color : "#08c",
+					textAlign : "right",
+					top : 10,
+					right : 10
+				}
+			}
+		};
+
 		return(
-			<div>{this.props.children}</div>
+			<div>
+				{this.state.modalOpen &&
+				<div style={{...styles.wrap.common, ...styles.wrap.white}}>
+					<div style={styles.btn.common}>Close</div>
+					<div>{this.props.children}</div>
+				</div>}
+			</div>
 		);
 	}
 }
