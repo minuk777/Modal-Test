@@ -24,6 +24,12 @@ class Modal extends React.Component {
 		});
 	}
 
+	closeHandle() {
+		this.setState({
+			modalOpen : false
+		});
+	}
+
 	render() {
 		
 		let styles = {
@@ -59,7 +65,7 @@ class Modal extends React.Component {
 			<div>
 				{this.state.modalOpen &&
 				<div style={{...styles.wrap.common, ...styles.wrap.white}}>
-					<div style={styles.btn.common}>Close</div>
+					<div style={styles.btn.common} onClick={()=>{this.closeHandle()}} >Close</div>
 					<div>{this.props.children}</div>
 				</div>}
 			</div>
