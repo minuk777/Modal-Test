@@ -9,7 +9,7 @@ class Modal extends React.Component {
 	static propTypes = {
 		modalOn : React.PropTypes.bool.isRequired
 	}
-
+	
 	render() {
 		
 		return(
