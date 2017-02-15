@@ -45,10 +45,11 @@ class Modal extends React.Component {
 					height : "100%",
 					top : 0,
 					left : 0,
-					padding : 10,
+					padding : 0,
 					display : "flex",
-					alignItems : "center",
-					justifyContent : "center"
+					//alignItems : "center",
+					justifyContent : "center",
+					overflowY : "auto"
 				},
 				custom : {
 					backgroundColor : this.state.mode==='default' ? `rgba(250,250,250,0.8)` : this.state.bgColor,
