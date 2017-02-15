@@ -4,19 +4,22 @@ class Modal extends React.Component {
 
 	static defaultProps = {
 		modalOn : false,
-		bgColor : '#FAFAFA'
+		bgColor : '#FAFAFA',
+		mode : 'default' 
 	}
 
 	static propTypes = {
 		modalOn : React.PropTypes.bool.isRequired,
-		bgColor : React.PropTypes.string
+		bgColor : React.PropTypes.string,
+		mode : React.PropTypes.string
 	}
 	
 	constructor(props) {
 		super(props);
 		this.state = {
 			modalOpen : this.props.modalOn,
-			bgColor : this.props.bgColor
+			bgColor : this.props.bgColor,
+			mode : this.props.mode
 		};
 	}
 
@@ -42,10 +45,17 @@ class Modal extends React.Component {
 					height : "100%",
 					top : 0,
 					left : 0,
-					padding : 10
+					padding : 10,
+					display : "flex",
+					alignItems : "center",
+					justifyContent : "center"
 				},
 				custom : {
-					backgroundColor : this.state.bgColor
+					backgroundColor : this.state.mode==='default' ? `rgba(250,250,250,0.8)` : this.state.bgColor,
+				},
+				child : {
+					width : "100%",
+
 				}
 			},
 			btn : {
@@ -68,7 +78,7 @@ class Modal extends React.Component {
 				{this.state.modalOpen &&
 				<div style={{...styles.wrap.common, ...styles.wrap.custom}}>
 					<div style={styles.btn.common} onClick={()=>{this.closeHandle()}} >Close</div>
-					<div>{this.props.children}</div>
+					<div style={styles.wrap.child}>{this.props.children}</div>
 				</div>}
 			</div>
 		);
