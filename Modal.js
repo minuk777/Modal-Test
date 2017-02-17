@@ -4,13 +4,13 @@ class Modal extends React.Component {
 
 	static defaultProps = {
 		modalOn : false,
-		bgColor : '#FAFAFA',
+		//bgColor : '#FAFAFA',
 		mode : 'default' 
 	}
 
 	static propTypes = {
 		modalOn : React.PropTypes.bool.isRequired,
-		bgColor : React.PropTypes.string,
+		//bgColor : React.PropTypes.string,
 		mode : React.PropTypes.string
 	}
 	
@@ -18,7 +18,7 @@ class Modal extends React.Component {
 		super(props);
 		this.state = {
 			modalOpen : this.props.modalOn,
-			bgColor : this.props.bgColor,
+			//bgColor : this.props.bgColor,
 			mode : this.props.mode
 		};
 	}
@@ -52,7 +52,7 @@ class Modal extends React.Component {
 					overflowY : "auto"
 				},
 				custom : {
-					backgroundColor : this.state.mode==='default' ? `rgba(250,250,250,0.8)` : this.state.bgColor,
+					backgroundColor : this.state.mode==='default' ? `rgba(18,18,18,0.5)` : this.state.bgColor,
 				},
 				child : {
 					width : "100%",
